@@ -1,20 +1,27 @@
 package org.kin.kafka.multithread.core;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.log4j.Level;
-import org.kin.framework.log.Log4jLoggerBinder;
-import org.kin.kafka.multithread.api.MessageHandler;
 import org.kin.kafka.multithread.api.CommitStrategy;
+import org.kin.kafka.multithread.api.MessageHandler;
 import org.kin.kafka.multithread.common.DefaultThreadFactory;
 import org.kin.kafka.multithread.config.AppConfig;
 import org.kin.kafka.multithread.domain.ConsumerRecordInfo;
+import org.kin.kafka.multithread.log.Log4jLoggerBinder;
 import org.kin.kafka.multithread.utils.TPStrUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.*;
-import java.util.concurrent.*;
 
 /**
  * Created by hjq on 2017/6/19.
@@ -212,4 +219,6 @@ public class OPOTMessageHandlersManager extends AbstractMessageHandlersManager{
             log.info("OPOT message handler thread(name=" + super.LOG_HEAD() + ") reconfiged");
         }
     }
+
+
 }

@@ -1,7 +1,7 @@
 package org.kin.kafka.multithread.configcenter.manager;
 
 import org.apache.log4j.Level;
-import org.kin.framework.log.Log4jLoggerBinder;
+import org.kin.kafka.multithread.log.Log4jLoggerBinder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

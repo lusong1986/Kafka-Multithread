@@ -1,5 +1,11 @@
 package org.kin.kafka.multithread.core;
 
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.common.TopicPartition;
 import org.kin.kafka.multithread.config.AppConfig;
@@ -7,10 +13,6 @@ import org.kin.kafka.multithread.configcenter.ReConfigable;
 import org.kin.kafka.multithread.domain.ConsumerRecordInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.*;
-import java.util.concurrent.ConcurrentSkipListSet;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 
 /**

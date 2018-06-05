@@ -1,8 +1,12 @@
 package org.kin.kafka.multithread.api;
 
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
-import org.kin.framework.log.Log4jLoggerBinder;
 import org.kin.kafka.multithread.config.AppConfig;
 import org.kin.kafka.multithread.configcenter.ReConfigable;
 import org.kin.kafka.multithread.core.AbstractMessageHandlersManager;
@@ -10,11 +14,10 @@ import org.kin.kafka.multithread.core.MessageFetcher;
 import org.kin.kafka.multithread.core.OCOTMultiProcessor;
 import org.kin.kafka.multithread.distributed.ChildRunModel;
 import org.kin.kafka.multithread.domain.ApplicationContext;
+import org.kin.kafka.multithread.log.Log4jLoggerBinder;
 import org.kin.kafka.multithread.utils.AppConfigUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.*;
 
 /**
  * Created by hjq on 2017/6/19.

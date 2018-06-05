@@ -1,32 +1,32 @@
 package org.kin.kafka.multithread.distributed.node;
 
-import org.apache.log4j.Level;
-import org.kin.framework.log.Log4jLoggerBinder;
-import org.kin.kafka.multithread.utils.ExceptionUtils;
-import org.kin.kafka.multithread.config.AppConfig;
-import org.kin.kafka.multithread.distributed.configcenter.ConfigFetcher;
-import org.kin.kafka.multithread.distributed.ChildRunModel;
-import org.kin.kafka.multithread.distributed.container.impl.JVMContainer;
-import org.kin.kafka.multithread.distributed.container.allocator.ContainerAllocator;
-import org.kin.kafka.multithread.distributed.container.allocator.impl.LocalContainerAllocator;
-import org.kin.kafka.multithread.distributed.node.config.NodeConfig;
-import org.kin.kafka.multithread.distributed.utils.NodeConfigUtils;
-import org.kin.kafka.multithread.domain.ConfigResultRequest;
-import org.kin.kafka.multithread.domain.HealthReport;
-import org.kin.kafka.multithread.protocol.app.ApplicationContextInfo;
-import org.kin.kafka.multithread.protocol.distributed.ContainerMasterProtocol;
-import org.kin.kafka.multithread.protocol.distributed.NodeMasterProtocol;
-import org.kin.kafka.multithread.rpc.factory.RPCFactories;
-import org.kin.kafka.multithread.utils.HostUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.LinkedBlockingDeque;
+
+import org.apache.log4j.Level;
+import org.kin.kafka.multithread.config.AppConfig;
+import org.kin.kafka.multithread.distributed.ChildRunModel;
+import org.kin.kafka.multithread.distributed.configcenter.ConfigFetcher;
+import org.kin.kafka.multithread.distributed.container.allocator.ContainerAllocator;
+import org.kin.kafka.multithread.distributed.container.allocator.impl.LocalContainerAllocator;
+import org.kin.kafka.multithread.distributed.container.impl.JVMContainer;
+import org.kin.kafka.multithread.distributed.node.config.NodeConfig;
+import org.kin.kafka.multithread.distributed.utils.NodeConfigUtils;
+import org.kin.kafka.multithread.domain.ConfigResultRequest;
+import org.kin.kafka.multithread.domain.HealthReport;
+import org.kin.kafka.multithread.log.Log4jLoggerBinder;
+import org.kin.kafka.multithread.protocol.app.ApplicationContextInfo;
+import org.kin.kafka.multithread.protocol.distributed.ContainerMasterProtocol;
+import org.kin.kafka.multithread.protocol.distributed.NodeMasterProtocol;
+import org.kin.kafka.multithread.rpc.factory.RPCFactories;
+import org.kin.kafka.multithread.utils.ExceptionUtils;
+import org.kin.kafka.multithread.utils.HostUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by huangjianqin on 2017/9/12.

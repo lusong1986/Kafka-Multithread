@@ -1,27 +1,40 @@
 package org.kin.kafka.multithread.core;
 
-import org.apache.kafka.clients.consumer.*;
-import org.apache.kafka.common.TopicPartition;
-import org.apache.log4j.Level;
-import org.kin.framework.log.Log4jLoggerBinder;
-import org.kin.kafka.multithread.api.*;
-import org.kin.kafka.multithread.common.DefaultThreadFactory;
-import org.kin.kafka.multithread.config.AppConfig;
-import org.kin.kafka.multithread.configcenter.ReConfigable;
-import org.kin.kafka.multithread.statistics.Statistics;
-import org.kin.kafka.multithread.api.AbstractConsumerRebalanceListener;
-import org.kin.kafka.multithread.utils.ClassUtils;
-import org.kin.kafka.multithread.utils.AppConfigUtils;
-import org.kin.kafka.multithread.domain.ConsumerRecordInfo;
-import org.kin.kafka.multithread.utils.TPStrUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.OffsetAndMetadata;
+import org.apache.kafka.common.TopicPartition;
+import org.apache.log4j.Level;
+import org.kin.kafka.multithread.api.AbstractConsumerRebalanceListener;
+import org.kin.kafka.multithread.api.Application;
+import org.kin.kafka.multithread.api.CallBack;
+import org.kin.kafka.multithread.api.CommitStrategy;
+import org.kin.kafka.multithread.api.MessageHandler;
+import org.kin.kafka.multithread.common.DefaultThreadFactory;
+import org.kin.kafka.multithread.config.AppConfig;
+import org.kin.kafka.multithread.configcenter.ReConfigable;
+import org.kin.kafka.multithread.domain.ConsumerRecordInfo;
+import org.kin.kafka.multithread.log.Log4jLoggerBinder;
+import org.kin.kafka.multithread.statistics.Statistics;
+import org.kin.kafka.multithread.utils.AppConfigUtils;
+import org.kin.kafka.multithread.utils.ClassUtils;
+import org.kin.kafka.multithread.utils.TPStrUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by 健勤 on 2017/7/26.

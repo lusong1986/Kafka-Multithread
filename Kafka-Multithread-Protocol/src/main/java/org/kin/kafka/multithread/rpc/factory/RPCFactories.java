@@ -1,17 +1,17 @@
 package org.kin.kafka.multithread.rpc.factory;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
+import java.util.concurrent.ExecutionException;
+
 import org.apache.log4j.Level;
-import org.kin.framework.log.Log4jLoggerBinder;
+import org.kin.kafka.multithread.log.Log4jLoggerBinder;
 import org.kin.kafka.multithread.rpc.factory.impl.DefaultRPCFactoryImpl;
 import org.kin.kafka.multithread.utils.ClassUtils;
 import org.kin.kafka.multithread.utils.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 
 /**
  * Created by huangjianqin on 2017/9/8.

@@ -1,23 +1,27 @@
 package org.kin.kafka.multithread.core;
 
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.common.TopicPartition;
-import org.kin.kafka.multithread.api.MessageHandler;
 import org.kin.kafka.multithread.api.CommitStrategy;
+import org.kin.kafka.multithread.api.MessageHandler;
 import org.kin.kafka.multithread.configcenter.ReConfigable;
-import org.kin.kafka.multithread.utils.AppConfigUtils;
 import org.kin.kafka.multithread.domain.ConsumerRecordInfo;
+import org.kin.kafka.multithread.utils.AppConfigUtils;
 import org.kin.kafka.multithread.utils.ClassUtils;
 import org.kin.kafka.multithread.utils.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.*;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created by hjq on 2017/7/4.
@@ -56,9 +60,9 @@ public abstract class AbstractMessageHandlersManager implements MessageHandlersM
     /**
      * 注册topics对应的message handlers class实例
      */
-    public void registerHandlers(Map<String, Class<? extends MessageHandler>> topic2HandlerClass){
-        this.topic2HandlerClass = topic2HandlerClass;
-    }
+//    public void registerHandlers(Map<String, Class<? extends MessageHandler>> topic2HandlerClass){
+//        this.topic2HandlerClass = topic2HandlerClass;
+//    }
 
     /**
      * 注册topics对应的commit Strategies class实例
